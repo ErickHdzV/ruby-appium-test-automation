@@ -3,264 +3,250 @@
 ### Author
 
 Erick Hernandez Velazco [github](https://github.com/ErickHdzV)
-Correo: erick.hv@codebyerick.com
+Email: erick.hv@codebyerick.com
 
-Este proyecto contiene pruebas automatizadas para la aplicación móvil de Mercado Lib### Errores**: Los selectores pueden cambiar con actualizaciones de la app 3. **Performance**: Se recomienda usar un emulador con buenas especificaciones para mejor rendimiento 4. **Red\*\*: Asegurar conexión estable a internet para que la app funcione correctamente
+This project contains automated tests for the Mercado Libre mobile application using Ruby and Appium. The tests verify search, filtering, and product sorting functionality.
 
-## 📋 Requisitos Previos
+## 📋 Prerequisites
 
-### Sistema Operativo
+### Operating System
 
-- **Windows** (configurado para Windows PowerShell)
+- **Windows** (configured for Windows PowerShell)
 
-### Software Requerido
+### Required Software
 
 #### 1. Ruby
 
-- **Versión requerida**: Ruby 3.4.6 o superior
-- Descargar desde: https://rubyinstaller.org/
-- Verificar instalación: `ruby --version`
+- **Required version**: Ruby 3.4.6 or higher
+- Download from: https://rubyinstaller.org/
+- Verify installation: `ruby --version`
 
-#### 2. Android SDK y ADB
+#### 2. Android SDK and ADB
 
-- **Android SDK** instalado (puede ser a través de Android Studio)
-- **ADB** disponible en PATH
-- Verificar: `adb --version`
+- **Android SDK** installed (can be through Android Studio)
+- **ADB** available in PATH
+- Verify: `adb --version`
 
 #### 3. Appium Server
 
-- **Node.js** (versión 14 o superior)
-- **Appium** instalado globalmente
+- **Node.js** (version 14 or higher)
+- **Appium** installed globally
 
 ```bash
 npm install -g appium
 npm install -g @appium/doctor
 ```
 
-#### 4. Drivers de Appium
+#### 4. Appium Drivers
 
 ```bash
 appium driver install uiautomator2
 ```
 
-#### 5. Emulador Android o Dispositivo Físico
+#### 5. Android Emulator or Physical Device
 
-- **Emulador Android** configurado y funcionando
-- O **dispositivo Android físico** con depuración USB habilitada
+- **Android Emulator** configured and running
+- Or **physical Android device** with USB debugging enabled
 
-## 📱 Configuración del Dispositivo/Emulador
+## 📱 Device/Emulator Configuration
 
-### Configuración del Emulador
+### Emulator Configuration
 
-1. Crear un emulador Android con:
+1. Create an Android emulator with:
 
 - **Android Studio** > AVD Manager > Create Virtual Device
-- **API Level**: 28 o superior
+- **API Level**: 28 or higher
 - **Target**: Google APIs
-- **ABI**: x86_64 (recomendado para performance)
+- **ABI**: x86_64 (recommended for performance)
 
-2. Iniciar el emulador:
+2. Start the emulator:
 
 ```bash
-emulator -avd <nombre_del_emulador>
+emulator -avd <emulator_name>
 ```
 
-3. Verificar que el emulador esté conectado:
+3. Verify the emulator is connected:
 
 ```bash
 adb devices
 ```
 
-### Aplicación Mercado Libre
+### Mercado Libre Application
 
-- **IMPORTANTE**: La aplicación de Mercado Libre debe estar instalada en el emulador/dispositivo
-- Descargar desde Google Play Store en el emulador
+- **IMPORTANT**: The Mercado Libre application must be installed on the emulator/device
+- Download from Google Play Store on the emulator
 - Package name: `com.mercadolibre`
 
-## 🛠️ Configuración del Proyecto
+## 🛠️ Project Configuration
 
-### 1. Clonar/Obtener el Proyecto
+### 1. Clone/Get the Project
 
 ```bash
-cd d:\A_Mios\5-testing\mercado-libre-ruby
+git clone https://github.com/ErickHdzV/ruby-appium-test-automation.git
+cd ruby-appium-test-automation
 ```
 
-### 2. Instalar Dependencias Ruby
+### 2. Install Ruby Dependencies
 
 ```bash
 bundle install
 ```
 
-### 3. Verificar Configuración Appium
+### 3. Verify Appium Configuration
 
 ```bash
 appium-doctor --android
 ```
 
-## 🚀 Ejecución de Pruebas
+## 🚀 Test Execution
 
-### 1. Iniciar Appium Server
+### 1. Start Appium Server
 
-En una terminal separada:
+In a separate terminal:
 
 ```bash
 appium --use-plugins=inspector --allow-cors
 ```
 
-El servidor se iniciará en: `http://127.0.0.1:4723`
+The server will start at: `http://127.0.0.1:4723`
 
-### 2. Verificar que el Emulador/Dispositivo esté Conectado
+### 2. Verify Emulator/Device is Connected
 
 ```bash
 adb devices
 ```
 
-### 3. Ejecutar las Pruebas
+### 3. Run the Tests
 
 ```bash
 ruby mercado_libre_spec.rb
 ```
 
-## 📊 Funcionalidad de las Pruebas
+## 📊 Test Functionality
 
-### Escenario de Prueba Principal
+### Main Test Scenario
 
-1. **Abrir aplicación** Mercado Libre
-2. **Buscar** "playstation 5"
-3. **Aplicar filtros**:
-   - Condición: Nuevo
-   - Ordenar por: Mayor precio
-4. **Extraer información** de los primeros 5 productos mostrados
-5. **Generar reportes** con screenshots
+1. **Open application** Mercado Libre
+2. **Search** "playstation 5"
+3. **Apply filters**:
+   - Condition: New
+   - Sort by: Highest price
+4. **Extract information** from the first 5 products displayed
+5. **Generate reports** with screenshots
 
-### Estructura de Datos Extraídos
+## 📈 Report Visualization
 
-Para cada producto se obtiene:
+### Open HTML Report
 
-- Número de posición (1-5)
-- Nombre del producto
-- Precio
+1. Navigate to the `reports/` folder
+2. Find the most recent file: `test_report_YYYYMMDD_HHMMSS.html`
+3. Double-click to open in your default browser
+4. The report includes screenshots, metrics, and complete details
 
-## 📈 Visualización de Reportes
-
-### Abrir Reporte HTML
-
-1. Navega a la carpeta `reports/`
-2. Busca el archivo más reciente: `test_report_YYYYMMDD_HHMMSS.html`
-3. Haz doble clic para abrir en tu navegador predeterminado
-4. El reporte incluye screenshots, métricas y detalles completos
-
-### Ejemplo de Reporte
-
-Para generar un reporte de ejemplo y ver el formato:
-
-```bash
-ruby report_generator.rb sample
-```
-
-### Ver Historial de Reportes
+### View Report History
 
 ```bash
 ruby report_generator.rb list
 ```
 
-## 🎯 Métricas de los Reportes
+## 🎯 Report Metrics
 
-Los reportes proporcionan las siguientes métricas:
+The reports provide the following metrics:
 
-- **Tiempo total de ejecución**
-- **Número de pasos ejecutados**
-- **Pasos exitosos vs fallidos**
-- **Cantidad de screenshots capturados**
-- **Productos encontrados y extraídos**
-- **Errores detallados con timestamps**
+- **Total execution time**
+- **Number of steps executed**
+- **Successful vs failed steps**
+- **Number of screenshots captured**
+- **Products found and extracted**
+- **Detailed errors with timestamps**
 
-## 🔧 Personalización de Reportes
-
-Para personalizar los reportes, puedes modificar:
-
-- `test_reporter.rb` - Estructura y contenido de reportes
-- CSS en la plantilla HTML para cambiar el diseño
-- Agregar nuevas métricas o secciones según necesidadesutilizando Ruby y Appium. Las pruebas verifican la funcionalidad de búsqueda, filtrado y ordenamiento de productos.
-
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```
 mercado-libre-ruby/
-├── mercado_libre_spec.rb   # Archivo principal de pruebas
-├── test_reporter.rb        # Sistema de generación de reportes
-├── report_generator.rb     # Utilidad para gestión de reportes
-├── Gemfile                 # Dependencias Ruby
-├── Gemfile.lock           # Versiones específicas de dependencias
-├── README.md              # Este archivo
+├── mercado_libre_spec.rb   # Main test file
+├── test_reporter.rb        # Report generation system
+├── report_generator.rb     # Report management utility
+├── Gemfile                 # Ruby dependencies
+├── Gemfile.lock           # Specific dependency versions
+├── README.md              # This file
 └── reports/
-    ├── screenshots/       # Capturas de pantalla generadas
-    ├── test_report_YYYYMMDD_HHMMSS.json  # Reporte en formato JSON
-    ├── test_report_YYYYMMDD_HHMMSS.html  # Reporte visual HTML
-    └── test_report_YYYYMMDD_HHMMSS.txt   # Reporte en texto plano
+    ├── screenshots/       # Generated screenshots
+    │   ├── 01_main_page.png
+    │   ├── 02_search_box.png
+    │   ├── 03_results_unfiltered.png
+    │   ├── 04_options_menu.png
+    │   ├── 05_new_condition.png
+    │   ├── 06_sort_by.png
+    │   ├── 07_results_with_filters_applied.png
+    │   ├── 08_products_extracted.png
+    │   └── error.png (if an error occurs)
+    ├── test_report_YYYYMMDD_HHMMSS.json  # JSON format report
+    ├── test_report_YYYYMMDD_HHMMSS.html  # Visual HTML report
+    └── test_report_YYYYMMDD_HHMMSS.txt   # Plain text report
 ```
 
-## 📊 Sistema de Reportes
+## 📊 Reporting System
 
-### Reportes Automáticos
+### Automatic Reports
 
-Las pruebas generan automáticamente 3 tipos de reportes:
+The tests automatically generate 3 types of reports:
 
-#### 1. **Reporte HTML** (Recomendado para visualización)
+#### 1. **HTML Report** (Recommended for visualization)
 
-- Interfaz visual completa con gráficos
-- Screenshots integrados
-- Resumen ejecutivo
-- Detalles paso a paso
-- **Ubicación**: `reports/test_report_YYYYMMDD_HHMMSS.html`
+- Complete visual interface with graphics
+- Integrated screenshots
+- Executive summary
+- Step-by-step details
+- **Location**: `reports/test_report_YYYYMMDD_HHMMSS.html`
 
-#### 2. **Reporte JSON** (Para procesamiento automático)
+#### 2. **JSON Report** (For automated processing)
 
-- Datos estructurados para análisis
-- Integración con otras herramientas
-- **Ubicación**: `reports/test_report_YYYYMMDD_HHMMSS.json`
+- Structured data for analysis
+- Integration with other tools
+- **Location**: `reports/test_report_YYYYMMDD_HHMMSS.json`
 
-#### 3. **Reporte TXT** (Para lectura rápida)
+#### 3. **TXT Report** (For quick reading)
 
-- Formato texto plano
-- Resumen conciso de resultados
-- **Ubicación**: `reports/test_report_YYYYMMDD_HHMMSS.txt`
+- Plain text format
+- Concise results summary
+- **Location**: `reports/test_report_YYYYMMDD_HHMMSS.txt`
 
-### Gestión de Reportes
+### Report Management
 
-#### Listar reportes existentes:
+#### List existing reports:
 
 ```bash
 ruby report_generator.rb list
 ```
 
-#### Generar reporte de ejemplo:
+#### Generate example report:
 
 ```bash
 ruby report_generator.rb sample
 ```
 
-#### Ver ayuda del generador:
+#### View generator help:
 
 ```bash
 ruby report_generator.rb help
 ```
 
-### Contenido de los Reportes
+### Report Content
 
-Los reportes incluyen:
+The reports include:
 
-- ✅ **Resumen ejecutivo** con métricas de éxito/fallo
-- ⏱️ **Duración total** de la prueba
-- 📝 **Log detallado** de cada paso ejecutado
-- 📸 **Screenshots** de cada etapa del proceso
-- 🎮 **Lista de productos** encontrados con precios
-- ❌ **Errores** detallados si ocurren fallos
-- 📊 **Estadísticas** de ejecución
+- ✅ **Executive summary** with success/failure metrics
+- ⏱️ **Total duration** of the test
+- 📝 **Detailed log** of each executed step
+- 📸 **Screenshots** of each stage of the process
+- 🎮 **List of products** found with prices
+- ❌ **Detailed errors** if failures occur
+- 📊 **Execution statistics**
 
-## 🔧 Configuración Técnica
+## 🔧 Technical Configuration
 
-### Capabilities de Appium
+### Appium Capabilities
 
 ```ruby
 caps = {
@@ -275,16 +261,31 @@ caps = {
 }
 ```
 
-### Dependencias Principales
+### Main Dependencies
 
-- `appium_lib` (~> 16.0.0) - Cliente Appium para Ruby
-- `selenium-webdriver` (>= 4.30) - WebDriver para automatización
-- `appium_lib_core` (>= 11.0.2) - Core de Appium
-- `rspec` (~> 3.13) - Framework de testing
+- `appium_lib` (~> 16.0.0) - Appium client for Ruby
+- `selenium-webdriver` (>= 4.30) - WebDriver for automation
+- `appium_lib_core` (>= 11.0.2) - Appium core
+- `rspec` (~> 3.13) - Testing framework
 
-## 📝 Notas Importantes
+## 📝 Important Notes
 
-1. **Versión de la App**: Las pruebas están optimizadas para versiones recientes de Mercado Libre
-2. **Selectores**: Los selectores pueden cambiar con actualizaciones de la app
-3. **Performance**: Se recomienda usar un emulador con buenas especificaciones para mejor rendimiento
-4. **Red**: Asegurar conexión estable a internet para que la app funcione correctamente
+1. **App Version**: The tests are optimized for recent versions of Mercado Libre
+2. **Selectors**: Selectors may change with app updates
+3. **Performance**: It is recommended to use an emulator with good specifications for better performance
+
+### Timeout Error
+
+- Increase timeouts in the code if the network is slow
+- Verify that the emulator has sufficient resources
+- Ensure the app is not loading additional elements
+
+### Automatic Screenshots
+
+The tests automatically generate screenshots at key points:
+
+- When opening the application
+- After performing the search
+- After applying filters
+- After extracting products
+- In case of error

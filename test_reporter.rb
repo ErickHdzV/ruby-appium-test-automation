@@ -89,7 +89,7 @@ class TestReporter
 
     json_path = File.join(@report_dir, "test_report_#{timestamp_file}.json")
     File.write(json_path, JSON.pretty_generate(report_data))
-    puts "[REPORT] JSON generado: #{json_path}"
+    puts "[REPORT] JSON generated: #{json_path}"
   end
 
   def generate_html_report
@@ -240,7 +240,7 @@ class TestReporter
     
     html_path = File.join(@report_dir, "test_report_#{timestamp_file}.html")
     File.write(html_path, html_content)
-    puts "[REPORT] HTML generado: #{html_path}"
+    puts "[REPORT] HTML generated: #{html_path}"
   end
 
   def generate_text_report
@@ -309,7 +309,7 @@ class TestReporter
 
     text_path = File.join(@report_dir, "test_report_#{timestamp_file}.txt")
     File.write(text_path, text_content)
-    puts "[REPORT] TXT generado: #{text_path}"
+    puts "[REPORT] TXT generated: #{text_path}"
   end
 
   def timestamp_file

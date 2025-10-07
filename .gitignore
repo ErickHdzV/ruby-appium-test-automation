@@ -1,0 +1,119 @@
+# Archivos específicos de Ruby
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+# Documentación generada
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+
+# Archivos de dependencias de Ruby
+/.bundle/
+/vendor/bundle
+/lib/bundler/man/
+
+# NOTA: Gemfile.lock SÍ debe incluirse en el repositorio
+# para asegurar versiones consistentes entre diferentes entornos
+
+# Archivos de configuración local
+.rvmrc
+.ruby-version
+.ruby-gemset
+
+# Reportes y screenshots (comentar si quieres versionar los reportes)
+/reports/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+
+# Logs de testing
+*.log
+/logs/
+
+# Archivos temporales de Appium
+/appium_logs/
+appium.log
+*.tmp
+
+# Archivos de configuración específicos del entorno
+.env
+.env.local
+.env.*.local
+
+# Archivos de configuración de IDE
+/.vscode/
+/.idea/
+*.swp
+*.swo
+*~
+
+# Archivos del sistema operativo
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+#Gem
+Gemfile.lock
+
+# Linux
+*~
+
+# Archivos de backup
+*.bak
+*.backup
+*.orig
+
+# Archivos de configuración de dispositivos Android
+adb.log
+*.keystore
+
+# Cache de Node.js (si usas Appium instalado localmente)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de configuración sensibles
+config/secrets.yml
+config/database.yml
+.secret
+
+# Archivos específicos del proyecto de testing
+# Descomenta estas líneas si NO quieres versionar ciertos elementos:
+
+# Reportes HTML/JSON/TXT (descomenta si no quieres versionar reportes)
+# test_report_*.html
+# test_report_*.json
+# test_report_*.txt
+
+# Screenshots específicos (descomenta si no quieres versionar capturas)
+# screenshots/
+# *.png
+
+# Archivos de configuración de capabilities específicas del entorno
+# appium_config.yml
+# device_config.json
+
+# Archivos de datos de prueba sensibles
+# test_data/passwords.txt
+# test_data/credentials.json

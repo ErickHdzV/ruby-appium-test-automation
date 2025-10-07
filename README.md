@@ -110,13 +110,13 @@ appium --use-plugins=inspector --allow-cors
 
 The server will start at: `http://127.0.0.1:4723`
 
-### 2. Verify Emulator/Device is Connected
+### 2. Verify Emulator/Device is Connected (optional)
 
 ```bash
 adb devices
 ```
 
-### 3. Run the Tests
+### 3. Run the Test
 
 ```bash
 ruby mercado_libre_spec.rb
